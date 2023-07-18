@@ -200,6 +200,12 @@ class ProductController extends Controller
     }
     public function delete_product($product_id){
         $this->AuthLogin();
+        $admin_id = Auth::id();
+        if(!checkAdminPermission($admin_id)) {
+            Toastr::error('Bạn không có quyền xóa dữ liệu','Thất bại');
+            return redirect('/all-product');
+        }
+
         DB::table('tbl_product')->where('product_id',$product_id)->delete();
         Toastr::success('Xóa sản phẩm thành công','Thành công');
         return Redirect::to('all-product');

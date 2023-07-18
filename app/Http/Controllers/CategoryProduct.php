@@ -158,6 +158,11 @@ class CategoryProduct extends Controller
     }
     public function delete_category_product($category_product_id){
         $this->AuthLogin();
+        $admin_id = Auth::id();
+        if(!checkAdminPermission($admin_id)) {
+            Toastr::error('Bạn không có quyền xóa dữ liệu','Thất bại');
+            return redirect('/all-category-product');
+        }
         DB::table('tbl_category_product')->where('category_id',$category_product_id)->delete();
         Toastr::success('Xóa danh mục sản phẩm thành công','Thành công');
 

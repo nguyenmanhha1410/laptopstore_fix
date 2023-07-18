@@ -41,6 +41,11 @@ public function impersonate_destroy(){
     }
 
     public function delete_user_roles($admin_id){
+        $admin_id = Auth::id();
+        if(!checkAdminPermission($admin_id)) {
+            Toastr::error('Bạn không có quyền xóa dữ liệu','Thất bại');
+            return redirect()->back();
+        }
         if(Auth::id() == $admin_id){
             Toastr::error('Bạn không được xóa quyền của mình','Thất bại');
 

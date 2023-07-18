@@ -135,6 +135,11 @@ class BrandProduct extends Controller
     }
     public function delete_brand_product($brand_product_id){
         $this->AuthLogin();
+        $admin_id = Auth::id();
+        if(!checkAdminPermission($admin_id)) {
+            Toastr::error('Bạn không có quyền xóa dữ liệu','Thất bại');
+            return redirect('/all-brand-product');
+        }
         DB::table('tbl_brand')->where('brand_id',$brand_product_id)->delete();
         // Session::put('message','Xóa thương hiệu sản phẩm thành công');
         Toastr::success('Xóa thương hiệu sản phẩm thành công','Thành công');
