@@ -10,7 +10,7 @@ class Admin extends Authenticatable
 {
     public $timestamps = false; //set time to false
     protected $fillable = [
-    	'admin_email', 'admin_password', 'admin_name','admin_phone'
+    	'id','admin_email', 'admin_password', 'admin_name','admin_phone'
     ];
     protected $primaryKey = 'admin_id';
  	protected $table = 'tbl_admin';

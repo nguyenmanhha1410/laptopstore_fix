@@ -44,9 +44,10 @@
             <td>{{ $user->admin_phone }}</td>
             {{-- <td>{{ $user->admin_password }}</td> --}}
 
-            <td><input type="checkbox" name="author_role" {{$user->hasRole('author') ? 'checked' : ''}}></td>
+            <!-- <td><input type="checkbox" name="author_role" {{$user->hasRole('author') ? 'checked' : ''}}></td> -->
+            <td><input type="checkbox" name="user_role" {{$user->hasRole('user') ? 'checked' : ''}}></td>
             <td><input type="checkbox" name="admin_role" {{$user->hasRole('admin') ? 'checked' : ''}}></td>
-            {{-- <td><input type="checkbox" name="user_role" {{$user->hasRole('user') ? 'checked' : ''}}></td> --}}
+            
 
             <td>
 

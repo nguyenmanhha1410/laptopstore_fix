@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Admin;
+use App\Admin_role;
 use App\Roles;
 use Auth;
 use Toastr;
@@ -62,7 +63,7 @@ class AuthController extends Controller
     }
     
     public function register(Request $request){
-         $this->validation($request);
+        //  $this->validation($request);
          $data = $request->all();
 
          $admin = new Admin();
@@ -71,6 +72,11 @@ class AuthController extends Controller
          $admin->admin_email = $data['admin_email'];
          $admin->admin_password = md5($data['admin_password']);
          $admin->save();
+
+         $admin_role = new Admin_role();
+         $admin_role->admin_admin_id = $admin->admin_id;
+         $admin_role->roles_id_roles = 3;
+         $admin_role->save();
 
          return redirect('/register-auth')->with('message','Đăng ký tài khoản thành công');
     }
