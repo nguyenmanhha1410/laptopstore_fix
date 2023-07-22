@@ -375,15 +375,7 @@ class CheckoutController extends Controller
 
     	return view('pages.checkout.login_checkout')->with('category',$cate_product)->with('brand',$brand_product)->with('meta_desc',$meta_desc)->with('meta_keywords',$meta_keywords)->with('meta_title',$meta_title)->with('url_canonical',$url_canonical)->with('slider',$slider)->with('contact',$contact);
     }
-//     public function validation($request){
 
-//         return $this->validate($request,[
-//     'customer_name' => 'required|max:255',
-//     'customer_phone' =>'required|max:255',
-//     'customer_email' =>'required|unique:tbl_customers,customer_email|max:255',
-//     'customer_password' =>'required|max:255',
-//     ]);
-// }
     public function add_customer(Request $request){
         // $this->validation($request);
 

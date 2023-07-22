@@ -57,9 +57,9 @@
 
 
                                 <p><input type="submit" value="Phân quyền" class="btn btn-sm btn-info"></p>
-                                <p><a style="margin:5px 0;" class="btn btn-sm btn-danger"
+                                <!-- <p><a style="margin:5px 0;" class="btn btn-sm btn-danger"
                                       href="{{url('/delete-user-roles/'.$user->admin_id)}}">Xóa
-                                        user</a></p>
+                                        user</a></p> -->
                                 <p><a style="margin:5px 0;" class="btn btn-sm btn-success"
                                       href="{{url('/impersonate/'.$user->admin_id)}}">Chuyển quyền</a></p>
 
