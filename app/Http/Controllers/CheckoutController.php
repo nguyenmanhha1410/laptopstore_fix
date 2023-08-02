@@ -180,7 +180,7 @@ class CheckoutController extends Controller
                 } else {
                     echo json_encode($returnData);
                 }
-	// vui lòng tham khảo thêm tại code demo
+	
     }
 
 
@@ -470,9 +470,7 @@ class CheckoutController extends Controller
         $meta_keywords = "Đăng nhập thanh toán";
         $meta_title = "Đăng nhập thanh toán";
         $url_canonical = $request->url();
-        //--seo 
-        
-        //contact
+
         $contact = Contact::where('info_id',1)->get();
 
     	$cate_product = DB::table('tbl_category_product')->where('category_status','1')->orderby('category_id','desc')->get();

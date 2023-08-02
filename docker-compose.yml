@@ -6,7 +6,7 @@ services:
             context: .
             dockerfile: Dockerfile
         image: elearning/php
-        container_name: elearning_app
+        container_name: app
         restart: unless-stopped
         environment:
             SERVICE_NAME: app
@@ -21,7 +21,7 @@ services:
     #Nginx Service
     webserver:
         image: nginx:alpine
-        container_name: elearning_webserver
+        container_name: webserver
         restart: unless-stopped
         ports:
             - "80:80"
@@ -35,12 +35,12 @@ services:
     #MySQL Service
     db:
         image: mysql:5.7.22
-        container_name: elearning_db
+        container_name: db
         restart: unless-stopped
         ports:
             - "3307:3306"
         environment:
-            MYSQL_DATABASE: elearning
+            MYSQL_DATABASE: laptopstore_new
             MYSQL_ROOT_PASSWORD: password
             MYSQL_USER: laravel #name user
             MYSQL_PASSWORD: password
